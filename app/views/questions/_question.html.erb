@@ -8,12 +8,12 @@
   </div>
 
   <div class="text-right">
-    <%= link_to fa_icon('pencil'), edit_question_path(question) %>
-    <%= button_to fa_icon('trash-o'), question_path(question), method: :delete,
-                  title: 'Удалить вопрос', form: {data: {turbo_confirm: 'Вы уверены, что хотите удалить вопрос?'}} %>
+    <%= link_to fa_icon("pencil"), edit_question_path(question) %>
+    <%= button_to fa_icon("trash-o"), question_path(question), method: :delete,
+                  title: "Удалить вопрос", form: {data: {turbo_confirm: "Вы уверены, что хотите удалить вопрос?"}} %>
     <% unless question.hidden? %>
-      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :put,
-                    title: 'Скрыть вопрос', form: {data: {turbo_confirm: 'Вы уверены, что хотите скрыть вопрос?'}} %>
+      <%= button_to fa_icon("eye-slash"), hide_question_path(question), method: :put,
+                    title: "Скрыть вопрос", form: {data: {turbo_confirm: "Вы уверены, что хотите скрыть вопрос?"}} %>
     <% end %>
   </div>
 </div>

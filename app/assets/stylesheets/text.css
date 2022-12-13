@@ -1,6 +1,6 @@
 body {
   color: #03071E;
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
 }
 
 a, button{
@@ -26,6 +26,11 @@ a, button{
 .text-grey {
   color: #a0a0a0;
 }
+
+.text-bold {
+  font-weight: bold;
+}
+
 
 .hidden {
   opacity: .5;
