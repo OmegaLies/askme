@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       put :hide
     end
   end
+
+  resources :users, only: %i[new create]
 end
