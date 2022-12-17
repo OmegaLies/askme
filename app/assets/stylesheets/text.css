@@ -38,3 +38,7 @@ a, button {
 .hidden {
   opacity: .5;
 }
+
+.with-breakers {
+  white-space: pre-wrap;
+}
