@@ -3,7 +3,7 @@ body {
   font-family: "Trebuchet MS", sans-serif;
 }
 
-a, button{
+a, button {
   color: #dc2f02;
 }
 
@@ -31,6 +31,9 @@ a, button{
   font-weight: bold;
 }
 
+.text-red {
+  color: #d00000;
+}
 
 .hidden {
   opacity: .5;
