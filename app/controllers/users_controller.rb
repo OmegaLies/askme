@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update destroy show]
+  before_action :authorise_user, only: %i[edit update destroy]
 
   def create
     @user = User.new(user_params)
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
@@ -47,6 +49,14 @@ class UsersController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def authorise_user
+    redirect_with_alert unless @user == current_user
+  end
+
   def user_params
     params.require(:user).permit(
       :name,
@@ -56,9 +66,5 @@ class UsersController < ApplicationController
       :password_confirmation,
       :navbar_color
     )
-  end
-
-  def set_user
-    @user = User.find(params[:id])
   end
 end
