@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[edit update destroy show]
+
   def create
     @user = User.new(user_params)
 
@@ -17,12 +19,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-
     if @user.update(user_params)
       redirect_to root_path, notice: "Данные пользователя обновлены"
     else
@@ -33,13 +32,18 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
 
     session.delete(:user_id)
 
     redirect_to root_path, notice: "Пользователь удалён"
   end
+
+  def show
+    @questions = @user.questions
+    @question = Question.new(user: @user)
+  end
+
 
   private
 
@@ -52,5 +56,9 @@ class UsersController < ApplicationController
       :password_confirmation,
       :navbar_color
     )
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
