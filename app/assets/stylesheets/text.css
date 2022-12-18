@@ -40,5 +40,5 @@ a, button {
 }
 
 .with-breakers {
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
