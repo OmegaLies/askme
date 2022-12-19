@@ -28,9 +28,15 @@
   </div>
 
   <% @questions.each do |question| %>
-    <div class="mt-sm container">
-      <%= render question %>
-    </div>
+    <% if question.hidden? %>
+      <div class="mt-sm container hidden">
+        <%= render question %>
+      </div>
+    <% else %>
+      <div class="mt-sm container">
+        <%= render question %>
+      </div>
+    <% end %>
   <% end %>
 <% else %>
   <%= render partial: 'no_questions', locals: {user: @user} %>
