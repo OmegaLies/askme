@@ -3,4 +3,5 @@ class Question < ApplicationRecord
   validates :user_id, presence: true
 
   belongs_to :user
+  belongs_to :author, class_name: "User", optional: true
 end
