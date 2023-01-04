@@ -7,6 +7,7 @@ gem "bcrypt"
 gem "bootsnap", require: false
 gem "dotenv-rails"
 gem "font-awesome-rails"
+gem 'gravtastic'
 gem "importmap-rails"
 gem "jbuilder"
 gem "puma", "~> 5.0"
