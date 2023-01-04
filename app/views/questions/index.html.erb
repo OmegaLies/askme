@@ -12,6 +12,7 @@
 
 <div class="container mt-sm">
   <h2 class="title-lg">
+    <%= inclination(@questions.count, 'Последний', 'Последние', 'Последние') %>
     <%= @questions.count %>
     <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
   </h2>
@@ -20,11 +21,27 @@
 <% @questions.each do |question| %>
   <% if question.hidden? %>
     <div class="mt-sm container hidden">
-      <%= render question %>
+      <p class="mb text-sm text-grey">
+        Вопрос <%= link_to "##{question.id}", question_path(question) %>
+        для юзера <%= link_to "@#{question.user.nickname}", user_path(question.user) %>
+        <% if question.author.present? %>
+          от <%= link_to display_nickname(question.author), user_path(question.author) %>
+        <% end %>
+      </p>
+
+      <%= render partial: 'question', object: question %>
     </div>
   <% else %>
     <div class="mt-sm container">
-      <%= render question %>
+      <p class="mb text-sm text-grey">
+        Вопрос <%= link_to "##{question.id}", question_path(question) %>
+        для <%= link_to "@#{question.user.nickname}", user_path(question.user) %>
+        <% if question.author.present? %>
+          от <%= link_to display_nickname(question.author), user_path(question.author) %>
+        <% end %>
+      </p>
+
+      <%= render partial: 'question', object: question %>
     </div>
   <% end %>
 <% end %>

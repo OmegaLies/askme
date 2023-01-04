@@ -1,7 +1,3 @@
-<% if question.author.present? %>
-  <p class="mb">От <%= link_to display_nickname(question.author), user_path(question.author) %></p>
-<% end %>
-
 <div class="mb-sm with-breakers">
   <%= question.body %>
 </div>
