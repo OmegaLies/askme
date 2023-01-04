@@ -2,12 +2,12 @@
   <h2 class="title-lg mt-lg"><%= @user.name %></h2>
 
   <div class="mt">
-    <%= render partial: 'users/user_avatar', locals: {user: @user} %>
+    <%= render partial: "users/user_avatar", locals: {user: @user} %>
   </div>
 
   <% if current_user == @user %>
     <p class="mt mb-lg">
-      <%= link_to fa_icon('pencil'), edit_user_path(@user) %>
+      <%= link_to fa_icon("pencil"), edit_user_path(@user) %>
     </p>
   <% end %>
 
@@ -15,11 +15,11 @@
 </div>
 
 <div class="container">
-  <%= link_to 'Спроси меня', new_question_path(user_id: @user.id),
-              class: 'button button-yellow' %>
+  <%= link_to "Спроси меня", new_question_path(user_id: @user.id),
+              class: "button button-yellow" %>
 
   <div class="mt">
-    <%= render partial: 'questions/form', locals: {question: @question} %>
+    <%= render partial: "questions/form", locals: {question: @question} %>
   </div>
 </div>
 
@@ -27,7 +27,7 @@
   <div class="container mt-sm">
     <h2 class="title-lg">
       <%= @questions.count %>
-      <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
+      <%= inclination(@questions.count, "вопрос", "вопроса", "вопросов") %>
     </h2>
   </div>
 
@@ -43,5 +43,5 @@
     <% end %>
   <% end %>
 <% else %>
-  <%= render partial: 'no_questions', locals: {user: @user} %>
+  <%= render partial: "no_questions", locals: {user: @user} %>
 <% end %>
